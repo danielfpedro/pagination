@@ -5,8 +5,7 @@ Biblioteca cara criação de paginação de dados.
 	// PHP
 	use Pagination\Pagination;
 
-	$pagination = new Pagination;
-	$pagination->make(10) // 10 é o número total de registros
+	$pagination = new Pagination(100); // Passe o total de registros
 
 	//HTML
 	<ul class="pagination">
@@ -23,8 +22,7 @@ Dependendo do Banco de Dados usado a forma de paginar a `query` irá variar, seg
 	"SELECT * FROM artigos LIMIT {$pagination->getOffset()}, {$pagination->getPerPage()}"
 
 ### Métodos
-* __construct($perPage = 20, $tag = li, $pageName = 'page')
-* make($totalRecords)
+* __construct($totalRecords, $perPage = 20, $tag = li, $pageName = 'page')
 * first($label = '<<', $extraClasses = null)
 * prev($label = '<', $extraClasses = null)
 * numbers($rangeNumbers = 5, $extraClasses = null)
@@ -37,9 +35,8 @@ Dependendo do Banco de Dados usado a forma de paginar a `query` irá variar, seg
 * getCurrentPage()
 * getPerPage()
 * getOffset()
-* getTotalPages() // Só disponível após chamar o ::make() pois ele necessita to total de registros para calcular o total de páginas
-
+* getTotalPages() // Só disponível após chamar o ::make() pois ele necessita do total de registros para calcular o total de páginas
 
 ### Range Number
-Na criação dos números você terá a opção especificar o `rangeNumbers` que tem como padrão o valor de `5`.
-Esta opção diz respeito a quantidade de números que serão exibidos por vez na sua paginação.
+Na criação dos números você terá a opção especificar o `rangeNumbers` que tem como padrão o valor `5`.
+Esta opção diz respeito ao `range` de números que serão exibidos antes e depois da pagina atual.

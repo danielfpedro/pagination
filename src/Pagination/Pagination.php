@@ -19,15 +19,17 @@ class Pagination
 
 	public $hasPagination = true;
 
-	public function __construct($perPage = 20, $tag = 'li', $pageName = 'page')
+	public function __construct($totalRecords, $perPage = 20, $tag = 'li', $pageName = 'page')
 	{
-		if ($perPage) {
-			$this->perPage = $perPage;
-		}
-		if ($tag) {
-			$this->tag = $tag;
-		}
+		$this->perPage = $perPage;
+		$this->tag = $tag;
 		$this->currentPage = $this->getCurrentPage();
+		$this->totalRecords = $totalRecords;
+		$this->totalPages = ceil($totalRecords / $this->perPage);
+
+		if ($this->totalPages <= 1) {
+			$this->hasPagination = false;
+		}
 	}
 
 	public function setNumbersRange($numbersRange)
@@ -62,15 +64,6 @@ class Pagination
 		return abs(($currentPage) ? $currentPage : 1);
 	}
 
-	public function make($totalRecords)
-	{
-		$this->totalRecords = $totalRecords;
-		$this->totalPages = ceil($totalRecords / $this->perPage);
-
-		if ($this->totalPages <= 1) {
-			$this->hasPagination = false;
-		}
-	}
 	public function numbers($numbersRange = 5, $extraClasses = null)
 	{
 		$this->numbersRange = $numbersRange;
@@ -138,7 +131,7 @@ class Pagination
 			$_GET[$this->pageName] = $goTo;
 			$url = [];
 			foreach ($_GET as $key => $value) {
-				$url[] = $key .'='. $value;
+				$url[] = $key .'='. urlencode($value);
 			}
 
 			$url = '?' . join($url, '&');

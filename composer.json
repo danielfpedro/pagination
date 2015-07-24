@@ -1,0 +1,14 @@
+{
+    "name": "danielfpedro/paginator",
+    "description": "Simple paginator",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Daniel Pedro",
+            "email": "danielfpedro@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.16"
+    }
+}

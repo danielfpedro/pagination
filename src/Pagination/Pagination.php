@@ -42,6 +42,10 @@ class Pagination
 	{
 		return $this->hasPagination;
 	}
+	public function getTotalPages()
+	{
+		return $this->totalPages;
+	}
 
 	public function getOffset()
 	{

@@ -2,24 +2,28 @@ Biblioteca cara criação de paginação de dados.
 
 ### Como usar
 
-	// PHP
-	use Pagination\Pagination;
+```php
+use Pagination\Pagination;
 
-	$pagination = new Pagination(100); // Passe o total de registros
+$pagination = new Pagination(100); // Passe o total de registros
+```
 
-	//HTML
-	<ul class="pagination">
-		<?= $pagination->first() ?>
-		<?= $pagination->prev() ?>
-		<?= $pagination->numbers() ?>
-		<?= $pagination->next() ?>
-		<?= $pagination->last() ?>
-	</ul>
+```html
+<ul class="pagination">
+	<?= $pagination->first() ?>
+	<?= $pagination->prev() ?>
+	<?= $pagination->numbers() ?>
+	<?= $pagination->next() ?>
+	<?= $pagination->last() ?>
+</ul>
+```
 
 ### Paginando o Select no Banco de Dados
 Dependendo do Banco de Dados usado a forma de paginar a `query` irá variar, segue abaixo um exemplo usando `MySql`.
 
-	"SELECT * FROM artigos LIMIT {$pagination->getOffset()}, {$pagination->getPerPage()}"
+```php
+SELECT * FROM artigos LIMIT {$pagination->getOffset()}, {$pagination->getPerPage()}
+```
 
 ### Métodos
 * __construct($totalRecords, $perPage = 20, $tag = li, $pageName = 'page')

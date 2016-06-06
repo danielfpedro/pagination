@@ -128,9 +128,9 @@ class Pagination
 	private function createLink($goTo, $label = null, $extraClasses = null)
 	{
 		if ($goTo) {
-			$_GET[$this->pageName] = $goTo;
+			$get[$this->pageName] = $goTo;
 			$url = [];
-			foreach ($_GET as $key => $value) {
+			foreach ($get as $key => $value) {
 				$url[] = $key .'='. urlencode($value);
 			}
 

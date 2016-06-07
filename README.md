@@ -30,6 +30,9 @@ SELECT * FROM artigos LIMIT {$pagination->getOffset()}, {$pagination->getPerPage
 * first($label = '<<', $extraClasses = null)
 * prev($label = '<', $extraClasses = null)
 * numbers($rangeNumbers = 5, $extraClasses = null)
+#### Range Number
+Esta opção diz respeito ao `range` de números que serão exibidos antes e depois da pagina atual.
+
 * next($label = '>', $extraClasses = null)
 * last($label = '>>', $extraClasses = null)
 * hasPagination()
@@ -39,8 +42,4 @@ SELECT * FROM artigos LIMIT {$pagination->getOffset()}, {$pagination->getPerPage
 * getCurrentPage()
 * getPerPage()
 * getOffset()
-* getTotalPages() // Só disponível após chamar o ::make() pois ele necessita do total de registros para calcular o total de páginas
-
-### Range Number
-Na criação dos números você terá a opção especificar o `rangeNumbers` que tem como padrão o valor `5`.
-Esta opção diz respeito ao `range` de números que serão exibidos antes e depois da pagina atual.
+* getTotalPages()

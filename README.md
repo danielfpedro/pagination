@@ -29,9 +29,7 @@ SELECT * FROM artigos LIMIT {$pagination->getOffset()}, {$pagination->getPerPage
 * __construct($totalRecords, $perPage = 20, $tag = li, $pageName = 'page')
 * first($label = '<<', $extraClasses = null)
 * prev($label = '<', $extraClasses = null)
-* numbers($rangeNumbers = 5, $extraClasses = null)
-#### Range Number
-Esta opção diz respeito ao `range` de números que serão exibidos antes e depois da pagina atual.
+* numbers($rangeNumbers = 5, $extraClasses = null) // Parametro `rangeNumber` diz respeito quantidade de números que será exibido antes e depois da pagina atual.
 
 * next($label = '>', $extraClasses = null)
 * last($label = '>>', $extraClasses = null)
